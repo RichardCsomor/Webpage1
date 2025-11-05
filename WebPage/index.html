@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu</title>
+<style>
+/* ---------- Reset & Body ---------- */
+html, body {
+height: 100%;
+margin: 0;
+font-family: Arial, sans-serif;
+}
+
+body {
+background-image: url('images/bg.jpg'); /* Make sure bg.jpg is inside images folder */
+background-size: cover;
+background-position: center center;
+background-repeat: no-repeat;
+min-height: 100vh;
+}
+
+/* ---------- Navbar ---------- */
+nav {
+background-color: rgba(255, 255, 255, 0.95);
+backdrop-filter: blur(5px);
+padding: 10px 0;
+position: sticky;
+top: 0;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+z-index: 10;
+}
+
+.nav-container {
+display: flex;
+justify-content: space-around;
+align-items: center;
+max-width: 1200px;
+margin: 0 auto;
+width: 90%;
+}
+
+.logo {
+font-size: 24px;
+font-weight: bold;
+color: #333;
+}
+
+.nav-links {
+display: flex;
+gap: 20px;
+}
+
+.nav-links a {
+color: #333;
+text-decoration: none;
+font-size: 18px;
+font-weight: bold;
+padding: 6px 12px;
+transition: color 0.3s;
+}
+
+.nav-links a:hover {
+color: #007bff;
+}
+
+/* ---------- Panels ---------- */
+.container {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 120px;
+padding: 100px 0 200px 0;
+}
+
+.panel {
+background-color: white;
+width: 70%;
+max-width: 700px;
+height: 350px;
+border-radius: 15px;
+box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 24px;
+color: #333;
+font-weight: bold;
+transition: transform 0.3s, box-shadow 0.3s;
+cursor: pointer;
+}
+
+.panel:nth-child(odd) { align-self: flex-start; margin-left: 10%; }
+.panel:nth-child(even) { align-self: flex-end; margin-right: 10%; }
+
+.panel:hover {
+transform: scale(1.02);
+box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+/* ---------- Responsive / Mobile ---------- */
+@media (max-width: 768px) {
+.nav-container {
+flex-direction: column;
+gap: 10px;
+}
+
+.nav-links {
+flex-direction: column;
+align-items: center;
+gap: 10px;
+}
+
+.panel {
+width: 90%;
+height: 250px;
+margin: 0 auto;
+}
+
+.panel:nth-child(odd),
+.panel:nth-child(even) {
+align-self: center;
+margin: 0;
+}
+
+.container { gap: 80px; }
+}
+</style>
+</head>
+<body>
+<nav>
+<div class="nav-container">
+<div class="logo">Menu</div>
+<div class="nav-links">
+<a href="#">Home</a>
+<a href="#">Gallery</a>
+<a href="#">Contact</a>
+</div>
+</div>
+</nav>
+
+<div class="container">
+<div class="panel">Photo 1</div>
+<div class="panel">Photo 2</div>
+<div class="panel">Photo 3</div>
+<div class="panel">Photo 4</div>
+<div class="panel">Photo 5</div>
+<div class="panel">Photo 6</div>
+</div>
+
+<script>
+// Confirm script is running
+console.log("Script loaded successfully!");
+
+// Optional: simple panel click animation
+const panels = document.querySelectorAll('.panel');
+panels.forEach(panel => {
+panel.addEventListener('click', () => {
+panel.style.transform = 'scale(1.05)';
+setTimeout(() => {
+panel.style.transform = 'scale(1)';
+}, 300);
+});
+});
+</script>
+</body>
+</html>
